@@ -26,9 +26,9 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 				bossHps);
 		
 		if (minNumberSpellsUsed > maxNumOfAttacksAllowed) {
-			System.out.println("Magician died!");
+			System.out.println("Magician died!=");
 		} else if (minNumberSpellsUsed > 0 && minNumberSpellsUsed <= maxNumOfAttacksAllowed) {
-			System.out.println("Magician won the battle!");
+			System.out.println("Magician won the battle! ");
 		} else {
 			System.out.println("Result is not correct!");
 		}
@@ -47,18 +47,18 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 
 
 
-		float MaxSpell=0; //  Büyü dizisinde maksimum büyü seçmek için tanımladım.
+		float[] MaxSpell={(float)0.0,(float)0.0,(float)0.0}; //  Büyü dizisinde maksimum büyü seçmek için tanımladım.
                 
 		for(int i=0;i<spellDamageInfo.length;i++){
-		   if(spellDamageInfo[i]>MaxSpell){
-		   MaxSpell=spellDamageInfo[i];  // "Ice Storm" seçilir
+		   if(spellDamageInfo[i]>MaxSpell[i]){
+		   MaxSpell[i]=spellDamageInfo[i];  // "Ice Storm" seçilir
 		   }
 		}
 		
 		for(int i=0;i<bossHPs.length;i++){
-			bossHPs[i]=bossHPs[i]-MaxSpell; // 1.adım [0.0f, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [0.0f, 00.0f, 00.0f]  4. 5. 6. büyü
+			bossHPs[i]=MaxSpell[i]-bossHPs[i]; // 1.adım [0.0f, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [0.0f, 00.0f, 00.0f]  4. 5. 6. büyü
 			spellsUsed+=3;// +3 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
-			if(bossHPs[i]<=0){
+			if(bossHPs[i]<0){
 			break ;
 			}
 		}
