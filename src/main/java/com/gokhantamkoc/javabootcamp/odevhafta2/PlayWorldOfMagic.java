@@ -43,7 +43,29 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		
 		int spellsUsed = 0;
 		// ______ BASLANGIC _______ Kodunuz buradan baslamali
+
+
+
+
+		float MaxSpell=0; //  Büyü dizisinde maksimum büyü seçmek için tanımladım.
+                
+		for(int i=0;i<spellDamageInfo.length;i++){
+		   if(spellDamageInfo[i]>MaxSpell){
+		   MaxSpell=spellDamageInfo[i];  // "Ice Storm" seçilir
+		   }
+		}
 		
+		for(int i=0;i<bossHPs.length;i++){
+			bossHPs[i]=bossHPs[i]-MaxSpell; // 1.adım [0.0f, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [0.0f, 00.0f, 00.0f]  4. 5. 6. büyü
+			spellsUsed++;  //son olarak 6 adımda tüm canavarları yeniyor...
+			if(bossHPs[i]<=0){
+			break ;
+			}
+		}
+		
+		
+
+
 		// ______ SON _______ Kodunuz burada bitmeli
 		/* NOT: ______ BASLANGIC _______ ve ______ SON _______ 
 		 * arasina istediginiz kadar sayida satir ekleyebilirsiniz.
