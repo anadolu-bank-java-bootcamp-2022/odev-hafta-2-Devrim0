@@ -26,9 +26,9 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 				bossHps);
 		
 		if (minNumberSpellsUsed > maxNumOfAttacksAllowed) {
-			System.out.println("Magician died!=");
+			System.out.println("Magician died!");
 		} else if (minNumberSpellsUsed > 0 && minNumberSpellsUsed <= maxNumOfAttacksAllowed) {
-			System.out.println("Magician won the battle! ");
+			System.out.println("Magician won the battle!");
 		} else {
 			System.out.println("Result is not correct!");
 		}
