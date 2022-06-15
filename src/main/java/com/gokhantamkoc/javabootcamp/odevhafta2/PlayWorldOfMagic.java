@@ -44,27 +44,25 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		int spellsUsed = 0;
 		// ______ BASLANGIC _______ Kodunuz buradan baslamali
 
-
-
-
-		float[] MaxSpell={(float)0.0,(float)0.0,(float)0.0}; //  Büyü dizisinde maksimum büyü seçmek için tanımladım.
+		float MaxSpell=0; //  Büyü dizisinde maksimum büyü seçmek için tanımladım.
                 
 		for(int i=0;i<spellDamageInfo.length;i++){
-		   if(spellDamageInfo[i]>MaxSpell[i]){
-		   MaxSpell[i]=spellDamageInfo[i];  // "Ice Storm" seçilir
+		   if(spellDamageInfo[i]>MaxSpell){
+		   MaxSpell=spellDamageInfo[i];  // "Ice Storm" seçilir
 		   }
 		}
 		
 		for(int i=0;i<bossHPs.length;i++){
-			bossHPs[i]=MaxSpell[i]-bossHPs[i]; // 1.adım [25.0f, -05.0f, -20.0f] 1. 2. 3. büyü, 2.adım [-15.0f, -45.0f, -60.0f]  4. 5. 6. büyü // - olması tüm canavarlan yenilmiştir.
-			spellsUsed+=3;// +3 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
-			if(bossHPs[i]<0){
-			break ;
+			while(bossHPs[i]>0){
+				spellsUsed++;
 			}
+			bossHPs[i]=bossHPs[i]-MaxSpell; // 1.adım [-15.0, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [-15.0f, -45.0f, -20.0f]  4. 5. 6. büyü // - olması tüm canavarlan yenilmiştir.
+			//spellsUsed+=3;// +3 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
+			
 		}
 		
 		
-
+        System.out.println(spellsUsed);
 
 		// ______ SON _______ Kodunuz burada bitmeli
 		/* NOT: ______ BASLANGIC _______ ve ______ SON _______ 
