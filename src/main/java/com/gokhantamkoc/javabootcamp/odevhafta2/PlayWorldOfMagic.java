@@ -55,12 +55,12 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		for(float i : bossHPs) {
 
 			
-		    while(i>0){
-				spellsUsed++;
+		    while(i>0){ // canavar gücü 0 dan büyükse büyü yap ve 
+				spellsUsed++;  //büyü kullanımını 1 arttır.
 				i=i-MaxSpell;
 			}
 			 // 1.adım [-15.0, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [-15.0f, -45.0f, -20.0f]  4. 5. 6. büyü // - olması tüm canavarlan yenilmiştir.
-			//spellsUsed+=3;// +3 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
+			//spellsUsed+=1;// +1 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
 			
 		}
 		
