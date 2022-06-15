@@ -52,15 +52,17 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		   }
 		}
 		
-		for(int i=0;i<bossHPs.length;i++){
-			while(bossHPs[i]>0){
+		for(float i : bossHPs) {
+
+			
+		    while(i>0){
 				spellsUsed++;
+				i=i-MaxSpell;
 			}
-			bossHPs[i]=bossHPs[i]-MaxSpell; // 1.adım [-15.0, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [-15.0f, -45.0f, -20.0f]  4. 5. 6. büyü // - olması tüm canavarlan yenilmiştir.
+			 // 1.adım [-15.0, 05.0f, 20.0f] 1. 2. 3. büyü, 2.adım [-15.0f, -45.0f, -20.0f]  4. 5. 6. büyü // - olması tüm canavarlan yenilmiştir.
 			//spellsUsed+=3;// +3 nedeni bir seferde üç büyü kullanıyor ve iki adımda 6 büyü kullanrak  tüm canavarları yeniyor...
 			
 		}
-		
 		
         System.out.println(spellsUsed);
 
